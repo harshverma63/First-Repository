@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #languageBox {
+            width: 200px;
+    height: 200px;
+    background-color: #f1f1f1;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+        }
+        #ref {
+            display: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="languageBox">
+        <h2 id="language1">Selected langauge</h2>
+        <h2 id="language"></h2>
+        <p id="ref">Page will be refereshed in 5 seconds.</p>
+    </div>
+
+    <script>
+
+        let selectLanguage = prompt("Please select your language: english, french, arabic");
+
+        if(selectLanguage == "english" || selectLanguage == "English"){
+            document.getElementById("language").innerHTML = "Your primary language is English";
+        }
+        else if(selectLanguage == "french" || selectLanguage == "French"){
+            document.getElementById("language").innerHTML = "Your primary language is French";
+        }
+        else if(selectLanguage == "arabic" || selectLanguage == "Arabic"){
+            document.getElementById("language").innerHTML = "Your primary language is Arabic";
+        }
+        else{
+            document.getElementById("language1").style.display = "none";
+            document.getElementById("ref").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("ref").innerHTML = "Page will be refereshed in 4 seconds.";
+        }, 1000);
+        setTimeout(() => {
+                document.getElementById("ref").innerHTML = "Page will be refereshed in 3 seconds.";
+        }, 2000);
+        setTimeout(() => {
+                document.getElementById("ref").innerHTML = "Page will be refereshed in 2 seconds.";
+        }, 3000);
+        setTimeout(() => {
+                document.getElementById("ref").innerHTML = "Page will be refereshed in 1 seconds.";
+        }, 4000);
+
+        document.getElementById("language").innerHTML = "You have not entered any language, check the language as per the region.";
+
+        
+            setTimeout(() => {
+                window.location = "https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory";
+        }, 5000);
+        }
+        
+    </script>
+
+</body>
+</html>
